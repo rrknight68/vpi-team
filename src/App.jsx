@@ -44,6 +44,13 @@ const gpPrincipals = [
     org: 'Former Michigan State Senator',
     bio: 'Mike is an American politician who served as a Republican member of the Michigan State Senate and as a member of the Michigan House of Representatives. He was first elected to the House in 2010 and to the Senate in 2014, bringing legislative and regulatory insight to the partnership.',
   },
+  {
+    name: 'Koen Roelens',
+    initials: 'KR',
+    title: 'Exclusive Hospitality Operator & LP Co-Investor',
+    org: 'Founder & President, Roelens Vacations',
+    bio: "Koen trained 15 years with Riu Hotels in global hospitality operations before founding Roelens Vacations in 2010 — now one of Southwest Florida's largest independent vacation rental operations, with 300+ managed properties and a 30+ person team. At Lake Shadroe, Koen is investing his own capital alongside his owners, and Roelens Vacations serves as the exclusive hospitality operator from opening day.",
+  },
 ]
 
 // ── GC Team Data ──────────────────────────────────────────────────────────

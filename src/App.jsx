@@ -462,7 +462,7 @@ export default function App() {
               new-construction opportunities in the Cape Coral / Port Charlotte corridor. White Stone
               helps Build-to-Rent investors source off-market land and build single-family and
               multifamily homes purpose-designed for long-term rental and short-term (Airbnb)
-              investment — having built <span className="font-semibold text-vpi-navy">200+ homes</span> across
+              investment — having built <span className="font-semibold text-vpi-navy">200 homes</span> across
               the region.
             </p>
 
@@ -470,7 +470,7 @@ export default function App() {
               {[
                 { icon: 'pin',       label: 'Local Market Expert', sub: 'Cape Coral · Port Charlotte' },
                 { icon: 'building',  label: 'Build-to-Rent',       sub: 'SF & MF for Rental' },
-                { icon: 'chart',     label: '200+ Homes Built',    sub: 'Southwest Florida' },
+                { icon: 'chart',     label: '200 Homes Built',     sub: 'Southwest Florida' },
                 { icon: 'handshake', label: 'Investor-Focused',    sub: 'Off-Market Land Sourcing' },
               ].map((b) => (
                 <div key={b.label} className="border border-vpi-navy/15 bg-white p-5 text-center shadow-sm">

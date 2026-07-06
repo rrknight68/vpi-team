@@ -53,6 +53,53 @@ const gpPrincipals = [
   },
 ]
 
+// ── Developer / Construction Management Data (White Stone + Dax) ───────────
+// NOTE FOR REVIEW: figures & attributions per Rob's 2026-07-06 brief. Items
+// flagged below need confirmation before this goes to a lender.
+const daxProjects = [
+  {
+    project: 'Naples Lakes Country Club',
+    role: 'Lead Construction Manager',
+    scope: '220 units · six-story blocks, 20 units per block',
+    client: 'Toll Brothers',
+    type: 'mf',
+    units: 220,
+  },
+  {
+    project: 'Timberwalk · Fort Myers',
+    role: 'Lead Construction Manager',
+    scope: '448-unit townhome development · 8 doors per building',
+    client: 'D.R. Horton',
+    type: 'mf',
+    units: 448,
+  },
+  {
+    project: 'Greens Edge at Province Park', // REVIEW: source read "GreensEdge at Provide Park"
+    role: 'Lead Construction Manager',
+    scope: '648 apartment units',
+    client: '—',
+    type: 'mf',
+    units: 648,
+  },
+  {
+    project: 'Naples Luxury Homes',
+    role: 'Construction Management',
+    scope: '250 luxury single-family homes',
+    client: '—',
+    type: 'sf',
+  },
+  {
+    project: 'White Stone Developments',
+    role: 'Construction Management',
+    scope: '150+ single-family homes',
+    client: '—',
+    type: 'sf',
+  },
+]
+// The three multifamily engagements foot exactly to the 1,316-unit headline:
+// 220 + 448 + 648 = 1,316.
+const daxMfTotal = daxProjects.filter((p) => p.type === 'mf').reduce((n, p) => n + p.units, 0)
+
 // ── GC Team Data ──────────────────────────────────────────────────────────
 const gcPrincipals = [
   {
@@ -355,22 +402,26 @@ export default function App() {
           </h1>
 
           <p className="mt-8 max-w-3xl font-body text-lg leading-relaxed text-vpi-cream/80">
-            A seasoned general partnership, a Veteran-owned general contractor with a
-            <span className="text-vpi-gold-light"> $1.8B+ track record</span>, and an award-winning
-            architecture and engineering team — assembled to deliver Lake Shadroe with lender-grade
-            execution discipline.
+            A seasoned general partnership, an investor-focused developer with
+            <span className="text-vpi-gold-light"> 1,316 multifamily units delivered</span>, a
+            Veteran-owned general contractor with a <span className="text-vpi-gold-light">$1.8B+ track
+            record</span>, and an award-winning architecture and engineering team — assembled to
+            deliver Lake Shadroe with lender-grade execution discipline.
           </p>
 
           <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-            <StatPill value="100+" label="YEARS COMBINED GP EXPERIENCE" />
+            <StatPill value="1,316" label="MULTIFAMILY UNITS DELIVERED" />
             <StatPill value="$1.8B+" label="GC CONSTRUCTION TRACK RECORD" />
+            <StatPill value="100+" label="YEARS COMBINED GP EXPERIENCE" />
             <StatPill value="20+" label="DESIGN & ENGINEERING AWARDS" />
-            <StatPill value="SW FL" label="ACTIVE MARKET EXPERTISE" />
           </div>
 
           <div className="mt-12 flex flex-wrap gap-3">
             <a href="#gp" className="border border-vpi-gold bg-vpi-gold/10 px-6 py-3 font-label text-xs tracking-[0.25em] text-vpi-gold-light transition hover:bg-vpi-gold hover:text-vpi-navy">
               GP TEAM
+            </a>
+            <a href="#dev" className="border border-vpi-gold/40 px-6 py-3 font-label text-xs tracking-[0.25em] text-vpi-cream transition hover:border-vpi-gold hover:text-vpi-gold-light">
+              DEVELOPER &amp; CM
             </a>
             <a href="#gc" className="border border-vpi-gold/40 px-6 py-3 font-label text-xs tracking-[0.25em] text-vpi-cream transition hover:border-vpi-gold hover:text-vpi-gold-light">
               GENERAL CONTRACTOR
@@ -403,10 +454,158 @@ export default function App() {
         </div>
       </Section>
 
+      {/* ═══ DEVELOPER & CONSTRUCTION MANAGEMENT ═══ */}
+      <Section
+        id="dev"
+        eyebrow="II · DEVELOPER &amp; CONSTRUCTION MANAGEMENT"
+        title="White Stone Developments"
+        tone="stone"
+      >
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
+          <div className="lg:col-span-3">
+            <p className="font-body text-lg leading-relaxed text-vpi-graphite">
+              White Stone Developments is a leading <span className="font-semibold text-vpi-navy">investor-focused
+              builder and local-market expert</span> in Southwest Florida, currently focused on
+              new-construction opportunities in the Cape Coral / Port Charlotte corridor. White Stone
+              helps Build-to-Rent investors source off-market land and build single-family and
+              multifamily homes purpose-designed for long-term rental and short-term (Airbnb)
+              investment — having built <span className="font-semibold text-vpi-navy">250+ homes</span> across
+              the region.
+            </p>
+
+            <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+              {[
+                { icon: 'pin',       label: 'Local Market Expert', sub: 'Cape Coral · Port Charlotte' },
+                { icon: 'building',  label: 'Build-to-Rent',       sub: 'SF & MF for Rental' },
+                { icon: 'chart',     label: '250+ Homes Built',    sub: 'Southwest Florida' },
+                { icon: 'handshake', label: 'Investor-Focused',    sub: 'Off-Market Land Sourcing' },
+              ].map((b) => (
+                <div key={b.label} className="border border-vpi-navy/15 bg-white p-5 text-center shadow-sm">
+                  <Icon name={b.icon} className="mx-auto h-7 w-7 text-vpi-gold" />
+                  <div className="mt-3 font-display text-base font-medium text-vpi-navy">{b.label}</div>
+                  <div className="mt-1 font-body text-xs text-vpi-graphite/70">{b.sub}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Role / partnership callout */}
+          <aside className="lg:col-span-2">
+            <div className="relative h-full border border-vpi-gold/50 bg-vpi-navy p-8">
+              <div className="absolute -top-3 left-6 bg-vpi-stone px-3">
+                <span className="font-label text-[0.65rem] tracking-[0.3em] text-vpi-gold">
+                  PROJECT ROLE
+                </span>
+              </div>
+              <h3 className="mt-2 font-display text-2xl font-medium text-vpi-gold-light">
+                Construction-Management Oversight
+              </h3>
+              <p className="mt-4 font-body text-sm leading-relaxed text-vpi-cream/90">
+                On Lake Shadroe, the White Stone team provides <span className="font-semibold text-vpi-gold-light">construction-management
+                oversight</span> across the development.
+              </p>
+              <p className="mt-4 font-body text-sm leading-relaxed text-vpi-cream/80">
+                For the project&rsquo;s multifamily scope, White Stone partners with
+                <span className="font-semibold text-vpi-gold-light"> Curran &amp; Young</span> — one of the
+                largest multifamily general contractors in the region — pairing hands-on development
+                leadership with institutional GC execution.
+              </p>
+            </div>
+          </aside>
+        </div>
+
+        {/* ─── Dax Urbina — VP of Construction ─── */}
+        <div className="mt-16 border border-vpi-navy/10 bg-white shadow-sm">
+          <div className="grid grid-cols-1 gap-8 p-8 lg:grid-cols-3">
+            {/* Profile */}
+            <div className="lg:col-span-1">
+              <div className="flex items-start gap-5">
+                <MonogramAvatar initials="DU" size="sm" />
+                <div>
+                  <h4 className="font-display text-2xl font-medium text-vpi-navy">Dax Urbina</h4>
+                  <p className="mt-1 font-label text-[0.7rem] tracking-[0.2em] text-vpi-gold">
+                    VP OF CONSTRUCTION
+                  </p>
+                  <p className="mt-1 font-body text-xs italic text-vpi-graphite">
+                    Project Manager · Lake Shadroe
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-6 grid grid-cols-3 gap-3">
+                {[
+                  { value: '30+', label: 'YEARS EXPERIENCE' },
+                  { value: '1,316', label: 'MULTIFAMILY UNITS' },
+                  { value: '100s', label: 'SF HOMES · SW FL' },
+                ].map((s) => (
+                  <div key={s.label} className="border border-vpi-gold/30 bg-vpi-stone/40 px-3 py-3 text-center">
+                    <div className="font-mono text-xl font-medium text-vpi-navy">{s.value}</div>
+                    <div className="mt-1 font-label text-[0.55rem] leading-tight tracking-[0.15em] text-vpi-graphite/70">
+                      {s.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-6 font-body text-sm leading-relaxed text-vpi-graphite">
+                Dax brings 30+ years of construction experience and has built 1,316 units of
+                garden-style multifamily and overseen the construction of hundreds of single-family
+                homes across Southwest Florida — a proven construction leader with a passion for
+                excellence.
+              </p>
+            </div>
+
+            {/* Project schedule */}
+            <div className="lg:col-span-2">
+              <p className="font-label text-[0.65rem] tracking-[0.25em] text-vpi-gold">
+                SELECTED PROJECT TRACK RECORD
+              </p>
+              <div className="mt-4 overflow-x-auto">
+                <table className="w-full min-w-[560px] border-collapse text-left">
+                  <thead>
+                    <tr className="border-b border-vpi-navy/20">
+                      {['Project', 'Role', 'Scope', 'Builder / Client'].map((h) => (
+                        <th key={h} className="pb-2 pr-4 font-label text-[0.6rem] tracking-[0.2em] text-vpi-navy/60">
+                          {h.toUpperCase()}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {daxProjects.map((p) => (
+                      <tr key={p.project} className="border-b border-vpi-navy/10 align-top">
+                        <td className="py-3 pr-4 font-body text-sm font-medium text-vpi-navy">{p.project}</td>
+                        <td className="py-3 pr-4 font-body text-xs text-vpi-graphite">{p.role}</td>
+                        <td className="py-3 pr-4 font-body text-xs text-vpi-graphite">{p.scope}</td>
+                        <td className="py-3 font-body text-xs italic text-vpi-graphite/90">{p.client}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colSpan={4} className="pt-4">
+                        <div className="flex items-center justify-between border-t-2 border-vpi-gold/40 pt-3">
+                          <span className="font-label text-[0.65rem] tracking-[0.2em] text-vpi-navy/70">
+                            MULTIFAMILY UNITS DELIVERED
+                          </span>
+                          <span className="font-mono text-lg font-medium text-vpi-gold">
+                            {daxMfTotal.toLocaleString()}
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
       {/* ═══ GENERAL CONTRACTOR ═══ */}
       <Section
         id="gc"
-        eyebrow="II · GENERAL CONTRACTOR"
+        eyebrow="III · GENERAL CONTRACTOR"
         title="Curran Young Construction"
         tone="navy"
       >
@@ -470,7 +669,7 @@ export default function App() {
       {/* ═══ ARCHITECTURE & ENGINEERING ═══ */}
       <Section
         id="ae"
-        eyebrow="III · DESIGN &amp; ENGINEERING"
+        eyebrow="IV · DESIGN &amp; ENGINEERING"
         title="Award-Winning A&E Team"
         tone="cream"
       >
@@ -647,7 +846,8 @@ export default function App() {
         tone="navy"
       >
         <p className="max-w-4xl font-body text-lg leading-relaxed text-vpi-cream/90">
-          The collaboration between <span className="text-vpi-gold-light">Curran Young Construction</span>,
+          The collaboration between <span className="text-vpi-gold-light">White Stone Developments</span>,
+          <span className="text-vpi-gold-light"> Curran Young Construction</span>,
           <span className="text-vpi-gold-light"> Boral Engineering</span>, and
           <span className="text-vpi-gold-light"> PDS Architecture</span> — under the direction of a
           seasoned General Partnership — provides a coordinated, award-recognized execution platform

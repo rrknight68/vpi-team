@@ -10,13 +10,6 @@ const gpPrincipals = [
     bio: 'Robert is the Founder & Managing Principal of Vantage Point Investments, with 18 years of experience in Southwest Florida real estate as an investor, HomeVestors franchisee, land developer, residential home builder, and licensed Florida broker. A recognized local market expert, Robert leads development strategy, capital formation, and execution across the VPI portfolio.',
   },
   {
-    name: 'Eddie Wilson',
-    initials: 'EW',
-    title: 'Principal · Business Strategy',
-    org: 'Serial Entrepreneur',
-    bio: 'Heralded as the "King of Exits," Eddie has built or run more than 100 different businesses, managed 4,000+ employees, and traveled the world speaking on business leadership. His operating and exit experience anchors the GP\'s enterprise-level decision-making.',
-  },
-  {
     name: 'Aaron Chapman',
     initials: 'AC',
     title: 'Principal · Capital & Finance',
